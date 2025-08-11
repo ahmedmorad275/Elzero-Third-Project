@@ -44,21 +44,33 @@ body {
 
 /* Extra small devices (phones, 600px and down) */
 /* الشاشات الصغيرة من 576px */
-@media (min-width: 576px) {
+@media (max-width: 575px) {
    .container {
       max-width: 540px;
+   }
+   .landing .container img {
+      display: none;
+   }
+   .landing .container .text {
+      margin: auto;
    }
 }
 
 /* الشاشات المتوسطة من 768px */
-@media (min-width: 768px) {
+@media (max-width: 767px) {
    .container {
       max-width: 720px;
+   }
+   .landing .container img {
+      display: none;
+   }
+   .landing .container .text {
+      margin: auto;
    }
 }
 
 /* الشاشات الكبيرة من 992px */
-@media (max-width: 992px) {
+@media (max-width: 991px) {
    .container {
       max-width: 960px;
    }
@@ -70,16 +82,13 @@ body {
    }
 }
 
-@media (min-width: 992px) {
-   .container {
-      max-width: 960px;
-   }
-}
-
 /* الشاشات الأكبر من 1200px */
 @media (min-width: 1200px) {
    .container {
       max-width: 1140px;
+   }
+   .landing .container img {
+      display: block;
    }
 }
 
@@ -583,7 +592,7 @@ header .container nav ul a:visited {
    content: '';
    bottom: 0;
    right: 0;
-   border-width: 0px 0px 170px 450px;
+   border-width: 0px 0px 170px 500px;
    border-style: solid;
    border-color: transparent transparent white;
    transition: var(--main-transition);
@@ -643,3 +652,106 @@ header .container nav ul a:visited {
    margin-bottom: 0;
 }
 /* End Testimonials */
+
+/* Start Team Members */
+.team {
+   padding-bottom: var(--main-padding-bottom);
+   padding-top: var(--main-padding-top);
+   position: relative;
+}
+
+.team .container {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   gap: 40px;
+}
+
+.team .container .box {
+   position: relative;
+   border-radius: 7px;
+}
+
+.team .container .box::before {
+   content: '';
+   position: absolute;
+   border-radius: 7px;
+   right: 0;
+   top: 0;
+   height: 100%;
+   width: calc(100% - 60px);
+   background-color: #f3f3f3;
+   transition: var(--main-transition);
+   z-index: -2;
+}
+
+.team .container .box::after {
+   content: '';
+   position: absolute;
+   right: 0;
+   top: 0;
+   border-radius: 7px;
+   height: 100%;
+   width: 0;
+   background-color: #e4e4e4;
+   transition: var(--main-transition);
+   z-index: -1;
+}
+
+.team .container .box:hover::after {
+   width: calc(100% - 60px);
+}
+
+.team .container .box .images {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding-top: 60px;
+}
+
+.team .container .box .images img {
+   width: calc(100% - 60px);
+   border-radius: 7px;
+   transition: var(--main-transition);
+}
+
+.team .container .box .images .icons {
+   width: 60px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+   gap: 20px;
+}
+
+.team .container .box .images .icons a {
+   color: #777;
+   transition: var(--main-transition);
+}
+.team .container .box .images .icons a:hover {
+   color: var(--main-color);
+}
+
+.team .container .box:hover .images img {
+   filter: grayscale(100%);
+}
+
+.team .container .box .text {
+   padding-left: 90px;
+   padding-top: 0;
+}
+.team .container .box .text h4 {
+   margin-top: 20px;
+   font-size: 22px;
+   color: var(--main-color);
+   transition: var(--main-transition);
+}
+
+.team .container .box .text p {
+   margin-top: 10px;
+   margin-bottom: 25px;
+}
+
+.team .container .box:hover .text h4 {
+   color: #777;
+}
+/* End Team Members */
